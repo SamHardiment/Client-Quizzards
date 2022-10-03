@@ -119,13 +119,13 @@ const Game = () => {
   }, [guessedUsers]);
 
   const getNextPlayer = () => {
-    if (activePlayers.length == 1) {
+    if (activePlayers.length === 1) {
       setActivePlayer(activePlayers[0]);
       activePlayers.splice(0, 1);
     } else {
       activePlayers.splice(activePlayers.indexOf(activePlayer), 1);
     }
-    if (activePlayers.length == 0) {
+    if (activePlayers.length === 0) {
       socket.emit("sendNavigateToGameOver", room);
       navigate("/gameover", { replace: true });
     }
